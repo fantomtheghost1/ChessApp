@@ -1,9 +1,65 @@
-def movePiece(piece):
-	
-	if piece.piece_type == 'pawn' && piece.team == 1:
+def letterToNumber(letter):
 
-		piece.pos_y += 1
+	if letter.lower() == 'a':
 
-	elif piece.piece_type == 'pawn' && piece.team == 2:
+		letter = 0
 
-		piece.pos_y -= 1
+	elif letter.lower() == 'b':
+
+		letter = 1
+
+	elif letter.lower() == 'c':
+
+		letter = 2
+
+	elif letter.lower() == 'd':
+
+		letter = 3
+
+	elif letter.lower() == 'e':
+
+		letter = 4
+
+	elif letter.lower() == 'f':
+
+		letter = 5
+
+	elif letter.lower() == 'g':
+
+		letter = 6
+
+	elif letter.lower() == 'h':
+
+		letter = 7
+
+	else:
+
+		letter = -1
+
+	return letter
+
+def inputToCoord(coordinates):
+
+	letter = int(letterToNumber([*coordinates][0]))
+	number = int([*coordinates][1]) - 1
+	output = []
+	output.append(letter)
+	output.append(number)
+
+	return output
+
+def getInputLocation(location, pieces):
+
+	coords = inputToCoord(location)
+
+	if coords[1] >= 8 or coords[1] <= -1 or coords[0] >= 8 or coords[0] <= -1:
+
+		return None
+
+	else:
+
+		for i in range(len(pieces)):
+
+			if pieces[i].pos_x == coords[0] and pieces[i].pos_y == coords[1]:
+
+				return pieces[i]

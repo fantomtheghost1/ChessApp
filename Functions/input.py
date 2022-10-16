@@ -38,6 +38,46 @@ def letterToNumber(letter):
 
 	return letter
 
+def numberToLetter(number):
+
+	if number == 0:
+
+		letter = 'A'
+
+	elif number == 1:
+
+		letter = 'B'
+
+	elif number == 2:
+
+		letter = 'C'
+
+	elif number == 3:
+
+		letter = 'D'
+
+	elif number == 4:
+
+		letter = 'E'
+
+	elif number == 5:
+
+		letter = 'F'
+
+	elif number == 6:
+
+		letter = 'G'
+
+	elif number == 7:
+
+		letter = 'H'
+
+	else:
+
+		letter = -1
+
+	return letter
+
 def inputToCoord(coordinates):
 
 	letter = int(letterToNumber([*coordinates][0]))

@@ -11,4 +11,6 @@ class Knight:
 		self.pos_y = pos_y
 		self.possible_moves = [self.pos_x + 1, self.pos_y + 2, self.pos_x - 1, self.pos_y + 2, self.pos_x + 2, self.pos_y + 1, self.pos_x - 2, self.pos_y + 1, self.pos_x + 1, self.pos_y - 2, self.pos_x - 1, self.pos_y - 2, self.pos_x + 2, self.pos_y - 1, self.pos_x - 2, self.pos_y - 1]
 
+	def updateMove(self):
 
+		self.possible_moves = [self.pos_x + 1, self.pos_y + 2, self.pos_x - 1, self.pos_y + 2, self.pos_x + 2, self.pos_y + 1, self.pos_x - 2, self.pos_y + 1, self.pos_x + 1, self.pos_y - 2, self.pos_x - 1, self.pos_y - 2, self.pos_x + 2, self.pos_y - 1, self.pos_x - 2, self.pos_y - 1]

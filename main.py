@@ -1,5 +1,4 @@
 import sys
-from Classes.pawn import *
 from Functions.board import *
 from Functions.pieces import *
 from Functions.input import *
@@ -11,34 +10,43 @@ main_board = populateBoard(pieces, main_board)
 
 while True:
 
-	displayBoard(main_board)
+	while True:
 
-	answer = input("Which piece would you like to move? (e.g. C4): ")
-	piece = getInputLocation(answer, pieces) 
+		displayBoard(main_board)
 
-	if piece != None:
+		answer = input("Which piece would you like to move? (e.g. C4): ")
+		piece = getInputLocation(answer, pieces) 
 
-		break
+		if piece != None:
 
-available_moves = []
+			break
 
-answer = input("Where would you like to move to? (e.g. C4) ")
-answer = inputToCoord(answer)
+	count = 0
+	print('')
+	print('Possible Moves:')
+	for i in range(0, len(piece.possible_moves), 2):
 
-for i in range(0, len(piece.possible_moves), 2):
+		if checkValidMove(pieces, piece.possible_moves[i], piece.possible_moves[i + 1]):
 
-	'''breakpoint()'''
-	if piece.possible_moves[i] < 8 and piece.possible_moves[i] >= 0 and piece.possible_moves[i + 1] < 8 and piece.possible_moves[i + 1] >= 0 and piece.possible_moves[i] == answer[0] and piece.possible_moves[i + 1] == answer[1]:
+			count += 1
+			let = numberToLetter(piece.possible_moves[i])
+			num = piece.possible_moves[i + 1] + 1
+			move = let + str(num)
+			print(str(count) + ". " + move)
+
+	print('')
+	answer = input("Where would you like to move to? (e.g. C4) ")
+	answer = inputToCoord(answer)
+
+	if checkValidMove(pieces, answer[0], answer[1]):
 
 		movePiece(piece, main_board, answer)
-		print("move good")
+		populateBoard(pieces, main_board)
+		piece.updateMove()
 
-	else:
+	else: 
 
-		print("move bad")
-
-populateBoard(pieces, main_board)
-displayBoard(main_board)
+		print("\nThat was an invalid move, please try again!")
 
 if __name__ == '__main__':
     sys.exit()

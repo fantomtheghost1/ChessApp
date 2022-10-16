@@ -3,6 +3,18 @@ from Functions.board import *
 from Functions.pieces import *
 from Functions.input import *
 
+def resource_path(relative_path):
+    
+    try:
+        
+        base_path = sys._MEIPASS
+
+    except Exception:
+
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
 main_board = [['-'] * 8 for i in range(8)]
 pieces = []
 pieces = piecesOnBoard(pieces)
@@ -33,6 +45,7 @@ while True:
 			num = piece.possible_moves[i + 1] + 1
 			move = let + str(num)
 			print(str(count) + ". " + move)
+			'''show the possible moves on the board itself'''
 
 	print('')
 	answer = input("Where would you like to move to? (e.g. C4) ")

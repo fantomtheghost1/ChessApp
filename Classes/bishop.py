@@ -15,10 +15,27 @@ class Bishop:
 
 		for i in range(8):
 
-			self.possible_moves.append(8 - i)
-			self.possible_moves.append(8 - i)
+			self.possible_moves.append(pos_x + i)
+			self.possible_moves.append(pos_y + i)
+			self.possible_moves.append(pos_x - i)
+			self.possible_moves.append(pos_y + i)
+			self.possible_moves.append(pos_x + i)
+			self.possible_moves.append(pos_y - i)
+			self.possible_moves.append(pos_x - i)
+			self.possible_moves.append(pos_y - i)
+
+	def updateMove(self):
+
+		self.possible_moves.clear()
 
 		for i in range(8):
 
-			self.possible_moves.append(8 + i)
-			self.possible_moves.append(8 + i)
+			self.possible_moves.append(self.pos_x + i)
+			self.possible_moves.append(self.pos_y + i)
+			self.possible_moves.append(self.pos_x - i)
+			self.possible_moves.append(self.pos_y + i)
+			self.possible_moves.append(self.pos_x + i)
+			self.possible_moves.append(self.pos_y - i)
+			self.possible_moves.append(self.pos_x - i)
+			self.possible_moves.append(self.pos_y - i)
+		

@@ -14,6 +14,7 @@ def movePiece(piece, board, move):
 def piecesOnBoard(piece_list):
 
 	Bishop1 = Bishop(4, 5, 1)
+	piece_list.append(Bishop1)
 
 	'''knight1 = Knight(7, 2)
 
